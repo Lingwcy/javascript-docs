@@ -1,0 +1,14 @@
+{
+    "ts-node": {
+      "compilerOptions": {
+        "module": "CommonJS"  // Changed from ES2022 to CommonJS
+      }
+    },
+    "compilerOptions": {
+      "lib": ["ES2022", "DOM"],
+      "target": "ES2022",
+      "module": "CommonJS",
+      "moduleResolution": "node",
+      "esModuleInterop": true
+    }
+}
