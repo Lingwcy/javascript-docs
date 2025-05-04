@@ -37,3 +37,7 @@ fooMap.forEach((value,key,map) =>{
 
 //5. Map.prototype.has() 方法返回一个布尔值，指示此 Map 中是否存在具有指定键的元素
 console.log(fooMap.has("bar"));
+
+//6. Map.prototype.keys() 返回一个新的 map 迭代器对象，该对象按插入顺序包含此 map 中每个元素的键
+const fooMapIteratorKeys = fooMap.keys();
+console.log(fooMapIteratorKeys.next());
