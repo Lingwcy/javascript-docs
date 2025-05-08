@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 如果tw-animate-css是您的自定义样式或第三方库，请按照其文档正确引入 */
+/* @import "tw-animate-css"; */
+
