@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="main">
+			
+		</div>
+	</body>
+	<style>
+		body{
+			margin: 0;
+			background-color: darkgrey;
+		}
+		.main{
+			width: 100vw;
+			height: 100vh;
+			transform: scale(0);
+			animation-name: PageDump,PageColor,radious;
+			animation-duration: 2s,4s;
+			animation-fill-mode: forwards;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: aliceblue;
+			animation-iteration-count: infinite;
+		}
+		.main::after{
+			content: "Welcome Ling's Blog";
+			font-size: 2em;
+			opacity: 0;
+			animation-name: PageDumpFont;
+			animation-fill-mode: forwards;
+			animation-delay: 2s;
+			animation-duration: 4s;
+		}
+		@keyframes PageDumpFont{
+			to{
+				opacity: 0.9;
+			}
+		}
+		@keyframes PageDump {
+			25%{
+				transform: scale(0.5);
+			}
+			50%{
+				transform: scale(1) rotate(360deg);
+			}
+			75%{
+				transform: scale(0.5);
+			}
+			to{
+				transform: scale(1);
+			}
+		}
+		@keyframes PageColor {
+			25%,75%{
+				background-color: darkcyan;
+			}
+			50%,to{			
+				background-color: firebrick;
+			}
+		}
+		@keyframes radious {
+			25%,75%{
+				border-radius: 50%;
+			}
+			50%,to{			
+				border-radius: 0%;
+			}
+		}
+	</style>
+</html>

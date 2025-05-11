@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<script src="login.js"></script>
+	<script src="reg.js"></script>
+</head>
+<style>
+	.main{
+		width: 300px;
+		height: 500px;
+		background-color: aquamarine;
+		align-items: center;
+		text-align: center;
+	}
+	#logRes{
+		width: 200px;
+		height: 250px;
+		background-color: antiquewhite;
+		margin: 50px;
+	}
+	#regRes{
+		width: 200px;
+		height: 200px;
+		background-color: antiquewhite;
+		margin: 50px;
+	}
+	
+</style>
+<body>
+	<div style="display: flex; justify-content: center;">
+		
+		<div class="main">
+			<h1>学生登陆</h1>
+		
+		学号: <input id="eno"/>
+		<br />
+		密码: <input id="logpsw" type="password"/>
+		<br />
+		<br />
+		<button type="submit" onclick="login()">登陆</button>
+		<div id="logRes"></div>
+		
+		</div>
+		
+		<div class="main" style="background-color: cadetblue;">
+			<h1>学生注册</h1>
+		
+		姓名: <input id="name"/>
+		<br />
+		邮箱: <input id="email"/>
+		<br />
+		密码: <input id="regpsw"/>
+		<br />
+		<br />
+		<button type="submit" onclick="reg()">注册</button>
+		<div id="regRes"></div>	
+		</div>			
+		
+	</div>
+
+	
+	
+
+</body>
+
+
+</html>

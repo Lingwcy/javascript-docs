@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div onclick="clickDiv()">
+        <a href="https:/www.baidu.com" onclick="clickA()">点击我</a>
+    </div>
+
+    <script>
+        //click是冒泡事件 从底层向DOM传递 所以 先执行 <a>标签 click
+        function clickA(){
+            alert("你单击了 '点击我' 链接");
+            event.preventDefault()
+            event.stopPropagation()//阻止传递 
+        }
+
+        function clickDiv(){
+            alert("你点击了 div")
+        }
+    </script>
+</body>
+</html>

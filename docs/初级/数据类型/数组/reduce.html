@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				reduce() 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
+				reduce() 方法有两个参数，第一个是回调函数，第二个是初始值。
+				
+			1.回调函数	回调函数在数组的每个元素上执行。回调函数的返回值是累加结果，并作为下一次调用回调函数的参数提供。回调函数带有四个参数。
+				
+						accumulator 累计器 ——累加器累加回调函数的返回值。
+						currentValue 当前值——处理数组的当前元素。
+						currentIndex 当前索引 （可选）
+						array 数组 （可选）
+						
+			2.初始值
+			如果指定了初始值，则将累加器设置为 initialValue 作为初始元素。否则，将累加器设置为数组的第一个元素作为初始元素。
+				
+			*/
+		   
+		   //实现累加数组内容
+		   let arr=[1,2,3,4]; //10
+		   let res = arr.reduce((sum,current)=>sum+current,0); //0是初始值
+		   console.log(res);//10
+			
+		</script>
+	</body>
+</html>

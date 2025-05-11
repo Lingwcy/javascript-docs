@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				字符	描述
+				\n	换行
+				\r	在 Windows 文本文件中，两个字符 \r\n 的组合代表一个换行。而在非 Windows 操作系统上，它就是 \n。这是历史原因造成的，大多数的 Windows 软件也理解 \n。
+				\', \"	引号
+				\\	反斜线
+				\t	制表符
+				\b, \f, \v	退格，换页，垂直标签 —— 为了兼容性，现在已经不使用了。
+				\xXX	具有给定十六进制 Unicode XX 的 Unicode 字符，例如：'\x7A' 和 'z' 相同。
+				\uXXXX	以 UTF-16 编码的十六进制代码 XXXX 的 Unicode 字符，例如 \u00A9 —— 是版权符号 © 的 Unicode。它必须正好是 4 个十六进制数字。
+				\u{X…XXXXXX}（1 到 6 个十六进制字符）	具有给定 UTF-32 编码的 Unicode 符号。一些罕见的字符用两个 Unicode 符号编码，占用 4 个字节。这样我们就可以插入长代码了。
+			
+			*/
+		   
+		   console.log("\u00A9");//©
+		   console.log("\u{20331}")//𠌱 象形文字 长Unicode
+		   console.log("\u{1F60D}")//😍 笑脸符号（另一个长 Unicode）
+		   
+		   console.log("I\'m LinG");
+		   console.log("打出一个反斜杠 \\");//反斜杠
+			
+			
+		</script>
+	</body>
+</html>

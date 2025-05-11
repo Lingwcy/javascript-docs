@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				str.split(delim) 方法可以做到。它通过给定的分隔符 delim 将字符串分割成一个数组。
+				str.join(delim)与上面相反 它通过指定的分隔符delim把数组合并为字符串
+			
+			*/
+		   let str1="bob, dad, anna, tot";
+		   //通过此方法把str1分割成数组
+		   let arr = str1.split(', ');//分隔符是一个逗号加上一个空格
+		   console.log(arr);// ['bob', 'dad', 'anna', 'tot']
+		   for(let name of arr){
+			   console.log(`HI I'm ${name}`);
+		   }
+		   
+		   //如果分隔符为空字符的话 会把字符串分隔成字符数组
+		   let str2="HellChina";
+		   console.log(str2.split(''));
+			
+			
+			//str.join
+			let arr2 = [1,2,3,4,5];
+			console.log(arr2.join(':'));//1:2:3:4:5
+		</script>
+	</body>
+</html>

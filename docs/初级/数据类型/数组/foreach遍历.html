@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+			arr.forEach(函数) 方法允许为数组的每个元素都运行一个函数。
+			
+			*/
+		   let arr = ["Bilbo", "Gandalf", "Nazgul"];
+		   let f = function(www,aaa,c){
+			   console.log(www);
+			   console.log(aaa);
+			   console.log(c);
+			   /*
+			   
+			   Bilbo
+			    0
+			     ['Bilbo', 'Gandalf', 'Nazgul']
+			   Gandalf
+			    1
+			     ['Bilbo', 'Gandalf', 'Nazgul']
+			    Nazgul
+			    2
+			     ['Bilbo', 'Gandalf', 'Nazgul']
+				
+				通过这个输出规律可以推出
+				参数1为固定的 元素内容
+				参数2为固定的 元素序号
+				参数3为固定的 整个数组内容
+				这与参数名无关
+			   
+			   */
+		   }
+			arr.forEach(f);
+			
+		</script>
+	</body>
+</html>

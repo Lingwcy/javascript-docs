@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+			“symbol” 值表示唯一的标识符。
+			
+			可以使用 Symbol() 来创建这种类型的值：
+			
+			无法将 symbol 值转换为字符串。 如果我们真的想显示一个 symbol，我们需要在它上面调用 .toString()
+			或者获取 symbol.description 属性，只显示描述
+			
+			symbol属性不参与for in 循环
+			*/
+		   
+		   let user1= Symbol("jack");
+		   let user2= Symbol("jack");
+		   console.log(user1===user2);//false
+		   alert(user1.description);
+		   alert(user1.toString());
+		   
+		   //应用 如果属性存在相同情况下 是无法全部输出的 只能输出第一个
+		   //这就需要使用symbol表示来唯一数据
+		   let stu = {
+			   [Symbol("李四")]:{java:85,c:90},
+			   [Symbol("李四")]:{java:20,c:100},
+			   总人数:2,
+		   };
+		   console.log(stu);
+		   
+		   
+		   //for in
+		   for(let key in stu){
+			   console.log(key);
+		   }//只有总人数
+		   
+			
+		</script>
+	</body>
+</html>

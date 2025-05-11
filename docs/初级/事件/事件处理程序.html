@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="test()">HTML标签属性注册事件处理程序</button>
+    <br>
+    <button id="t1">JS对象注册事件处理程序</button>
+    <br>
+    <button id="t2">AddEventListener()方法注册事件处理程序</button>
+
+
+    <script>
+        function test(){alert("事件处理程序被调用了...")}
+
+        let testBT= document.getElementById("t1")
+        testBT.onclick=test
+        testBT= document.getElementById("t2")
+        testBT.addEventListener('click',test,true)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			"use strict";
+			
+			/*
+				函数表达式的举栗子 回调函数
+			*/
+			
+			let ask= function(question,yes,no){
+				if(confirm(question)) yes();
+				else no();
+			};
+			
+			let showAgree = function(){
+			   alert("你同意了想法");
+			};
+			
+			let disAgree = function(){
+				alert("你反对了这个想法");
+			};
+			
+			ask("王某很笨吗?",showAgree,disAgree);
+			
+			
+			//使用匿名函数 进行函数回调
+			ask(
+				"王某是笨比",
+				function(){ alert("正确的") },
+				function(){ alert("一眼丁真") }
+			);
+			
+			//函数声明与函数表达式的细微区别:
+						/*
+						
+							函数表达式是在代码执行到达时被创建，并且仅从那一刻起可用。					
+							一旦代码执行到赋值表达式 let sum = function… 的右侧，此时就会开始创建该函数，并且可以从现在开始使用（分配，调用等）。
+							
+							函数声明则不同。							
+							在函数声明被定义之前，它就可以被调用。
+							
+							例如，一个全局函数声明对整个脚本来说都是可见的，无论它被写在这个脚本的哪个位置。							
+							这是内部算法的原故。当 JavaScript 准备 运行脚本时，首先会在脚本中寻找全局函数声明，并创建这些函数。我们可以将其视为“初始化阶段”。							
+							在处理完所有函数声明后，代码才被执行。所以运行时能够使用这些函数。
+						
+						*/
+					   
+					   //下面的代码在函数声明之前调用函数 js允许这种操作  
+					   say();
+					   function say(){
+						   console.log("say()函数被调用");
+					   }
+					   
+					   
+					///在严格模式下函数声明与函数表达式都拥有块级作用域 函数只能在其声明的代码块中使用
+					{
+							function inner1(){
+								alert("inner1");
+							}
+							
+							let inner2= function(){
+								alert("inner2");
+							}
+					}
+					inner1(); //在严格模式下 它将为defined
+					
+
+
+					
+		</script>
+	</body>
+</html>

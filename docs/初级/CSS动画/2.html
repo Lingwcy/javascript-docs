@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="main">
+			<div class="box"></div>
+		</div>
+	</body>
+	
+	<style>
+		body{
+			width: 100vw;
+			height: 100vh;
+			background-color: darkcyan;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.main{
+			width: 150px;
+			height: 150px;
+			
+			border:  1px solid darkgoldenrod;
+
+		}
+		.box{
+			width: 30px;
+			height: 30px;
+			background-color: honeydew;
+			animation: move;
+			animation-duration: 3s;
+		}
+			
+		@keyframes move{
+			25%{
+				transform: translateX(120px);
+				background-color: orange;
+				border-radius: 30px;
+			}
+			50%{
+				transform: translate(120px,120px);
+				background-color: darkmagenta;
+				border-radius: 0px;
+			}
+				
+			75%{
+				transform: translateY(120px);
+				background-color: indianred;
+				border-radius: 30px;
+			}
+				
+			100%{
+			}
+		}
+	</style>
+	<script>
+	</script>
+</html>

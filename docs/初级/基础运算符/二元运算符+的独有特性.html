@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				目前已知 '+' 有两个特性:
+					1.通常来说 '+' 用于求和 但如果运算元是字符串时
+					  它将合并(连接)各个字符串
+					2. 数字转化，一元运算符 '+' 作用于一元运算时 能够进行数字转化 即与Number()效果相同
+			
+			*/
+		   
+		   let str = "my" + "name";
+		   console.log(str);
+		   
+		   //注意：只要任意一个运算元是字符串，那么另一个运算元也将被转化为字符串。
+		   console.log("2"+1);//"21"
+		   console.log(1+"2");//"12"
+		   //基础运算符从左向右顺序工作
+		   console.log(2+2+"1");//"41"
+		   console.log("1"+2+2);//"112"
+		   
+		   //可以发现一个特性，只要运算元中出现字符串  "+" 总能把结果自动转换成字符串
+		   //但其他的基础运算符中 如 '-','/' 如果出现字符串运算元 则先会把运算元转换成 number 然后进行运算 结果最后为number类型
+		   
+			
+			
+			
+			//数字转化，一元运算符 +
+			console.log(+true);//等效与Number(true)
+			
+			let apples="6",
+				oranges="3";
+			console.log(`总数是 ${+apples + +oranges}`);
+			// 更长的写法
+			// console.log( Number(apples) + Number(oranges) );
+		</script>
+	</body>
+</html>

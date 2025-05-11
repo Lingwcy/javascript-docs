@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			"use strict"
+			/*
+			
+				在 JavaScript 中，this 关键字与其他大多数编程语言中的不同。
+				JavaScript 中的 this 可以用于任何函数，即使它不是对象的方法
+				
+				this 的值是在代码运行时计算出来的，它取决于代码上下文。
+				如果this在运行时上下文中找不到具体的对象目标 它会返回一个undefined
+				
+				
+				注意点:
+				1.	箭头函数中没有this 如果我们在箭头函数中引用this 它的值取决于外部的正常函数
+					
+				2.	this 的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定 this 到底指向谁
+					
+				3.	一般的函数调用属于全局性调用，此时 this 指向全局对象 window，严格模式下，this 指向 undefined
+			*/
+			
+			let obj1={
+				name:"Anna",
+				age:16,
+				sayHi: function(){
+					console.log(this.name);
+				},
+				arrow:()=>{console.log(this.name =='')},//此处this.name为空字符  表示在外部找不到一个具体的值
+			};
+			
+			obj1.sayHi();
+			obj1.arrow();
+			
+			
+			//this的不受限制
+			let obj2={name:"bob"},
+				obj3={name:"jack"};
+			
+			let f= function(){
+				console.log(this.name);
+			};
+			obj2.f=f;
+			obj3.f=f;
+			obj2.f();//bob
+			obj3.f();//jack
+			
+			
+			//在没有对象指定下调用this
+			let f2= function(){
+				console.log(this);
+			};
+			
+			f2();
+				/*
+				
+					调用f2()没有指定任何对象 这会产生两种结果
+					1.如果使用的"use strict" 此时的this值会为undefined
+					2.如果没有启用严格模式 this 将会是 全局对象 这是一个历史行为
+				
+				*/
+		</script>
+	</body>
+</html>

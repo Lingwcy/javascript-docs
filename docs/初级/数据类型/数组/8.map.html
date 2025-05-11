@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				它对数组的每个元素都调用函数，并返回结果数组。
+			
+			*/
+		   
+		   let countries = ["China","Amercian","Biristan","Japan"];
+		   
+		   let resLength = countries.map(function(item){
+			  return item.length; 
+		   });
+		   console.log(resLength);//5 8 8 5
+		   
+			//在函数只有一行时 可以用箭头函数简写为单参数函数
+			 console.log(countries.map(item=>item.length));//简写
+			
+		</script>
+	</body>
+</html>

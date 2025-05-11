@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		随机回文数:
+		<input  type="text" id="txt1"/>
+		<button id="btn" onclick="gen()">刷新</button>
+		
+		<script>
+			 function gen() {
+			            var result = [];
+			            for (var i = 1000; i < 10000 + 1; i++) {
+			                var a = i.toString();
+			                var b = a.split("").reverse().join("");
+			
+			                if (a === b) {
+			                    result.push(b);
+			                }
+			            };
+
+						var arr=[]
+						for(let i=0;i<10;i++){
+							arr.push( result[ Math.floor((Math.random()*result.length)) ] )
+						}
+						
+						let key=document.getElementById('txt1')
+						key.value=arr
+			            return arr;
+			        }
+					
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+					pop/push, shift/unshift 方法 作用于对 数组首端和数组末端的操作
+					//
+					1.pop 移除末端元素 并返回此元素
+					2.push 在数组末端添加一个元素
+					
+					3.shift 移除首端元素 并返回此元素
+					4.unshift 在首端添加一个元素
+			
+			*/
+		   
+		   //方法举例
+		   let arr=["开心","失落","悲伤","幸福","落魄","骄傲"];
+		   //pop
+		   console.log(arr.pop());// "骄傲"
+		   console.log(arr); //"开心","失落","悲伤","幸福","落魄"		   
+		   //push
+		   console.log(arr.push("骄傲"));//6
+		   console.log(arr);//"开心","失落","悲伤","幸福","落魄","骄傲"
+		   
+		   //shift
+		   console.log(arr.shift());//"开心"
+		   console.log(arr);//"失落","悲伤","幸福","落魄","骄傲"
+		   //unshift
+		   console.log(arr.unshift("开心"));//6
+		   console.log(arr);//"开心","失落","悲伤","幸福","落魄","骄傲"
+		   
+		   //push 和 unshift 方法都可以一次添加多个元素：
+			arr.push("愤怒","苦恼");
+			arr.unshift("迷茫","懊悔");
+			console.log(arr);//['迷茫', '懊悔', '开心', '失落', '悲伤', '幸福', '落魄', '骄傲', '愤怒', '苦恼']
+			
+		</script>
+	</body>
+</html>

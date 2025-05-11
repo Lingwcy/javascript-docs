@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+				当对不同类型进行值比较时 
+				js会首先将其类型转换为数字Number再进行比较
+			*/
+		   
+		   console.log('2'>1);//字符串"2"会被转换成数字2
+		   console.log("01"==1);//true
+		   
+		   //对于布尔类型值，true 会被转化为 1、false 转化为 0。
+		   console.log(true==1);
+		   
+		   
+		   //严格相等运算符 === 在进行比较时不会做任何的类型转换。
+		   console.log( 0 === false ); // false，因为被比较值的数据类型不同
+		  
+		  
+		  //在关系运算符中，null，undefined会被Number()强制转换成数字类型；
+		  //在相等运算符中，null，undefined与其他类型的值比较时，结果都为false
+		  console.log(null==0);//false
+		  console.log(undefined==0);//false
+
+		</script>
+	</body>
+</html>

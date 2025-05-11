@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			  Map特性:
+			  1.map的key可以是任何数据类型（map 使用 SameValueZero 算法来比较键是否相等。它和严格等于 === 差不多）
+			  2.map.set()链式调用 :map.set()每次都会返回map自身因此可以进行链式的调用
+			*/
+		   //1.举例
+		   let map1= new Map()
+		   map1.set('1','str')
+		   map1.set(1,'number')
+		   let dog ={name:'bob'}
+		   map1.set(dog,'dogBob')
+		   console.log(map1)
+		   
+		   //2.链式
+		   let map2= new Map()
+		   .set(1,'hahah')
+		   .set('1','ling')
+		   console.log(map2)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			在 JavaScript 中，“number” 类型无法安全地表示大于 (253-1)（即 9007199254740991），或小于 -(253-1) 的整数。
+			
+			更准确的说，“number” 类型可以存储更大的整数，但超出安全整数范围 ±(253-1) 会出现精度问题
+			因此，可能存储的是“近似值”。
+			
+			例如，这两个数字（正好超出了安全整数范围）是相同的：
+			*/
+		   console.log(9007199254740991 + 1); // 9007199254740992
+		   console.log(9007199254740991 + 2); // 9007199254740992
+		   
+		   //BigInt 类型是最近被添加到 JavaScript 语言中的，用于表示任意长度的整数。
+		   //可以通过将 n 附加到整数字段的末尾来创建 BigInt 值。
+		   const bignumber = 666666666666666666666666666666n;
+		   console.log(bignumber);
+		</script>
+	</body>
+</html>

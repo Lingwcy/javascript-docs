@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+				符号: ??
+				定义: a ?? b 的结果是：
+					如果 a 是已定义的，则结果为 a，
+					如果 a 不是已定义的，则结果为 b。
+					
+				换句话说，如果第一个参数不是 null/undefined，则 ?? 返回第一个参数。
+				否则，返回第二个参数
+				
+				?? 的常见使用场景是提供默认值。
+			
+			*/
+		   
+		   let res = 3 ?? 1;//3为已定义的 则直接返回
+		   console.log(res);//3
+		   
+		   //res = a ?? b等价于下面:
+		   let a=3,b=4;
+		   let res2 = (a != null && a != undefined) ? a : b;
+		   console.log(res2)
+			
+			
+			//eg 
+			let user;
+			console.log(user??"匿名"); //user 未定义 返回 ‘匿名’
+			user="王某是笨比";
+			console.log(user??"匿名"); //user 有定义
+			
+			//多级 ??
+			let firstname,lastname,nickname="LinG";
+			console.log(firstname ?? lastname ?? nickname ?? "匿名" )
+			
+			
+			//JavaScript 禁止将 ?? 运算符与 && 和 || 运算符一起使用，除非使用括号明确指定了优先级。
+		</script>
+	</body>
+</html>

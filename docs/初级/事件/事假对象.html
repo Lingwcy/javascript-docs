@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button"  id="btTest" value="请点击" onclick="test()">
+    <script>
+        /*
+            JS规定:事件处理程序被触发时,事件对象作为第一个参数传递给事件处理程序
+            如果 直接调用事件处理程序,没有发生事件 则没有事件对象
+
+        */
+        let counter = 0
+        function test(){
+            let s = '没有事件'
+            if(event){
+                counter++;
+                event.currentTarget.name =`事件已被触发 ${counter} 次`
+                s=`事件类型 ${event.type}`
+                s+=`\n事件目标 ${event.target.name}`
+                s+=`\n发生事件时间${event.timeStamp}`
+                
+            }
+            alert(s)
+        }
+    </script>
+</body>
+</html>

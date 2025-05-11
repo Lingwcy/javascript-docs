@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+				
+				1.在 JavaScript 中，字符串不可更改。改变字符是不可能的。
+						实际上字符串本身是一种经过由语言封装后的基础类型（通过系统自带的String构造函数new出来的）
+						底层还是一个对象，不是简单数据类型
+						这个对象自从创建之后其内容就不能发生改变，所以字符串不变
+			
+			*/
+		   
+		//1.字符串不可变
+		   let str ="he";
+		   str[0]='x';// error 无效的操作
+		   console.log(str);// "he"
+		   
+		   //通常的解决方法是创建一个新的字符串，并将其分配给 str 而不是以前的字符串。
+		   
+		   str="x" + str[1];
+		   console.log(str);//xe
+		   
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				indexOf/lastIndexOf 和 includes
+				
+				arr.indexOf(from,value) 从from 开始查找 指定的元素value  如果找到返回该元素所在的索引 如何没找到返回-1  
+				arr.lastIndexOf(from,value)  与上面相同 但是从最末尾开始查找
+				arr.includes(from,value) 从from 开始查找 指定的元素value 如果找到返回true 没找到返回false
+			
+			*/
+		   
+		   //arr.indexOf(from,value) 
+		   let arr = [1,2,3,4,5,1];
+		   console.log(arr.indexOf(1)); //0 
+		   console.log(arr.indexOf(1,1)); //从二号位开始 找 元素1  返回5
+		   
+		   //arr.lastIndexOf(from,value)   
+		   console.log(arr.lastIndexOf(1));//从末尾开始找 索引5
+		   
+		   //arr.includes(from,value)
+		   console.log(arr.includes(5));//true
+		   console.log(arr.includes(10));//false
+		</script>
+	</body>
+</html>

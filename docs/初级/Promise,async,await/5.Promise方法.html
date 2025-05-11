@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let promise = Promise.all([
+				new Promise(reslove=>setTimeout(()=>reslove(1),3000)),
+				new Promise(reslove=>setTimeout(()=>reslove(2),2000)),
+				new Promise(reslove=>setTimeout(()=>reslove(3),1000)),
+			]).then(alert)
+		</script>
+	</body>
+</html>

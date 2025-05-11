@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+					/*
+					
+						箭头函数
+					
+						当函数体只有一句return表达式时，那么可以省略花括号与return；
+					*/
+				   
+				   let sum = (a,b)=>a+b;
+				   //a b 为参数 =>右边为返回值
+				   console.log(sum(1,2))//3
+				   
+				   
+				   //如果传入的参数只有一个 则可以省略括号 这叫单参数函数!
+				   let say = content => console.log(content);
+				   say("hello");
+				   
+				   //eg
+				   let age = prompt("今年多大了?",18);
+				   
+				   let msg= (age<18) ? ()=>alert("儿童") : ()=>alert("成人");
+				   msg();
+				   
+				   //多行箭头函数 用{}来构建方法体
+					let someMessage = ()=>{
+						console.log("第一条");
+						console.log("第二条");
+					}
+					someMessage();
+			
+		</script>
+	</body>
+</html>

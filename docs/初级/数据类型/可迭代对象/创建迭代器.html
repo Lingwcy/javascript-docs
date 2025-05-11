@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+		    /*
+				使用迭代器是对for of制定统一的遍历规则
+			
+				js中对象分为可迭代和不可迭代 如果是可迭代哪它就会有一个[Symbol.iterator] 函数属性
+				
+				这个函数就是对象的迭代器函数，如用for of 如果遍历的对象没有这个迭代方法那么就会报错
+				
+				for of 传入的是可迭代对象,但是如何吧一个不可迭代的对象变为可迭代的对象呢！
+				
+				很简单就是自己写一个[Symbol.iterator] 函数。
+				
+				
+				js内置的可迭代对象  可以直接通过for of遍历
+				数组Array
+				字符串String
+				Map
+				Set
+				arguments
+				Typed Arrays
+				Generators，ES6新增加
+			
+			*/
+		   //我们可以自建一个迭代器函数 制定range函数的遍历规则
+			let range = {
+				from:1,
+				to:5,
+			};
+			
+			range[Symbol.iterator] = function(){
+				
+				return {
+					current:this.from,
+					last:this.to,
+					
+					next(){
+						if(this.current <= this.last){
+							return {
+								done:false,
+								value:this.current++
+							};
+						}
+						else return {done:true}
+					}
+				};
+				
+			};
+			
+			for(let num of range){
+				console.log(num);
+			}
+			
+		//使用 range 自身作为迭代器来简化代码	
+			let number ={
+				from:5,
+				to:10,
+				
+				[Symbol.iterator](){
+					this.current= this.from;
+					return this; //这里必须返回迭代器对象 我们修改过它的current
+				},
+				
+				next(){
+					if(this.current <= this.to){
+						return {done:false,value:this.current++};
+					}
+					else return{done:true};
+				}
+			};
+			
+			for (let s of number) {
+				console.log(s);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			数组是一种特殊的对象。使用方括号来访问属性 arr[0] 实际上是来自于对象的语法。它其实与 obj[key] 相同，其中 arr 是对象，而数字用作键（key）。
+			
+			它们扩展了对象，提供了特殊的方法来处理有序的数据集合以及 length 属性。但从本质上讲，它仍然是一个对象。
+			
+			在 JavaScript 中只有 8 种基本的数据类型。数组是一个对象，因此其行为也像一个对象。
+			
+				数组的声明及其访问
+				
+				数组的遍历:
+					1.for of
+					2.for in(不推荐用 或是永远不要用)
+						为什么?
+							技术上来讲，因为数组也是对象，所以使用 for..in 也是可以的：
+							for..in 循环会遍历 所有属性，不仅仅是这些数字属性。
+							在浏览器和其它环境中有一种称为“类数组”的对象，它们 看似是数组。
+							也就是说，它们有 length 和索引属性，但是也可能有其它的非数字的属性和方法，这通常是我们不需要的。for..in 循环会把它们都列出来。
+							所以如果我们需要处理类数组对象，这些“额外”的属性就会存在问题。
+					3.foreach
+						eg => arr.foreach(items)
+			*/
+					
+			
+			//声明
+			let arr = ["apple","orange","Plum"];//声明
+			
+			//访问 （两种）
+			console.log(arr[0]);//方括号访问 "apple"
+			console.log(arr.at(0)); //"apple" at方法
+			console.log(arr.at(-1)); //"Plum" 参数为负时 从右边开始索引
+			console.log(arr);//"apple","orange","plum"
+			
+			console.log(typeof arr);//object 数组是对象
+			
+			
+			//数组的遍历
+			//for..of
+			for (let value of arr) {
+				console.log(value);
+			}
+			//for..in
+			for (let key in arr) {
+				console.log(arr[key]);
+			}
+			console.log("foreach");
+			//foreach
+			arr.forEach(function(items){console.log(items)});
+		</script>
+	</body>
+</html>

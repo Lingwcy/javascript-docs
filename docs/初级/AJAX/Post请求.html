@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		 账号:<input id="user" />
+		 密码:<input id="psw" />
+		 <button type="submit" value="登陆" onclick="doAjaxRequest()">登陆</button>
+		
+		<div id="myDiv"></div>
+		<button onclick="doAjaxRequest()">发起Ajax请求</button>
+		<script>
+			var myDiv = document.getElementById("myDiv");
+			window.onerror = function(msg,url,line){
+				alert('出错了: \n错误信息:'+msg+'   n错误文档:'+url+' n错误位置:'+line+'   ');
+			}
+			
+			function getXMLHttpRequest(){
+				var xhr = new XMLHttpRequest();
+				return xhr;
+			}
+			function doAjaxRequest(){
+				var xhr= getXMLHttpRequest();
+				if(!xhr){
+					alert("浏览器不支持AJAX");
+					return;
+					
+					}
+					
+				xhr.onreadystatechange = function(){
+					var node = document.createElement('div')
+					node.textContent ='readyState=' + xhr.readyState + 'status=' +xhr.status;
+					myDiv.appendChild(node);
+						
+					if(xhr.readyState == 4 && xhr.status == 200){
+						node = document.createElement('div');
+						node.textContent = '响应结果=' +xhr.responseText;
+						myDiv.appendChild(node);
+						node = document.createElement('div');
+						node.textContent = '响应头=' +xhr.getAllResponseHeaders();
+						myDiv.appendChild(node);
+					}
+				}
+				var username = document.getElementById("user").value;
+				var password = document.getElementById("psw").value;
+				xhr.open("POST","https://localhost:7215/Login/LG?eno="+username+"&psw="+password);
+				xhr.send();
+				
+			}
+
+			
+
+
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.1.js"></script>
+</head>
+<body> 
+
+    <p>first graph</p>
+    <div><p>secound graph</p></div>
+    <p>thrid graph</p>
+
+    <script>
+        /*
+
+            $() 函数是 Jquery() 的简写版
+            
+            jquery()函数的第一个参数有多种形式:
+                1.字符串形式的CSS选择器
+                2.字符串形式的HTML标记
+                3.一个或者多个DOM元素
+                4.一个函数调用或者匿名函数
+        */
+
+
+        $(document).ready(
+            function(){
+                let ps = $('p')
+                ps.css({color:"red"})
+
+                $().each(ps,function(obj){
+
+                }
+            }
+        )
+    </script>
+</body>
+</html>

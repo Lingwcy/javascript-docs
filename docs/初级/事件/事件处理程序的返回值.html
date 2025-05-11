@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https:/www.baidu.com" onclick="return test1()">你不会跳转</a>
+
+    <script>
+        /*
+            通常,事件处理程序返回false时 会阻止浏览器执行这个事件的默认动作
+
+            使用event.preventDefault() 也可以阻止默认事件
+            
+        */
+
+        function test(){
+            alert("你单击了跳转默认事件被阻止！ return false")
+            return false
+        }
+
+        function test1(){
+            alert("你单击了跳转默认事件被阻止！event.preventDefault()")
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>

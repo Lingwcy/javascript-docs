@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			/*
+			
+				for..in 循环
+				循环遍历对象的属性
+			
+			*/
+		   
+		   let user = {
+			   name:"wang",
+			   age:20,
+			   sex:"man",
+			   job:"student",
+			   isAdmin:true,
+		   }
+		   
+		   for(let key in user){
+			   console.log(`${key} = ${user[key]}`);
+		   }
+			
+			
+			//对象属性的输出顺序
+			//整数属性会被优先进行排序，其他属性则按照创建的顺序显示
+			let code ={
+				
+				
+				"41":"jack",
+				"1":"wang",
+				ddw:"ccc",
+				"99":"Lu",
+				for:"www",
+			};
+			for(let key in code){
+				console.log(`${key} = ${code[key]}`);// 1  41  99  ddw  for
+			}
+			
+		</script>
+		
+	</body>
+</html>

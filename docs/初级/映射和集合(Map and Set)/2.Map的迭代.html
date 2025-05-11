@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+			如果要在 map 里使用循环，可以使用以下三个方法：
+			
+			map.keys() —— 遍历并返回一个包含所有键的可迭代对象，
+			map.values() —— 遍历并返回一个包含所有值的可迭代对象，
+			map.entries() —— 遍历并返回一个包含所有实体 [key, value] 的可迭代对象，for..of 在默认情况下使用的就是这个。
+			
+			*/
+			let Imap = new Map([
+								  ['cucumber', 500],
+								  ['tomatoes', 350],
+								  ['onion',    50]
+								]);
+			
+			for (let keys of Imap.keys()) {
+				console.log(keys)
+			}
+			
+			for (let value of Imap.values()) {
+				console.log(value)
+			}
+			
+			for (let map of Imap) {
+				console.log(map)
+			}
+			
+		</script>
+	</body>
+</html>

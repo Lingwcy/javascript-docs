@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			​ Promise是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。
+			 所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。
+			 通俗讲，Promise是一个许诺、承诺,是对未来事情的承诺，承诺不一定能完成，但是无论是否能完成都会有一个结果。
+			 
+			 构造器如下
+			 let promise = new Promise(function(resolve, reject) {
+			   // 承诺内容
+			 });
+			 
+			 1.构造器会附带两个js自带的参数 resolve《解决承诺》 reject《拒绝承诺》
+			 
+			 2.当 承诺内容 获得了结果，无论是早还是晚都没关系，它应该调用以下回调之一：
+			 
+			     resolve(value) —— 如果任务成功完成并带有结果 value。
+			     reject(error) —— 如果出现了 error，error 即为 error 对象。
+			 3.承诺内容 只能调用一个 resolve 或一个 reject。任何状态的更改都是最终的。
+			  所有其他的再对 resolve 和 reject 的调用都会被忽略：
+			  
+			4.由 new Promise 构造器返回的 promise 对象具有以下内部属性：
+			  state —— 最初是 "pending"，然后在 resolve 被调用时变为 "fulfilled"，或者在 reject 被调用时变为 "rejected"。
+			  result —— 最初是 undefined，然后在 resolve(value) 被调用时变为 value，或者在 reject(error) 被调用时变为 error。
+			*/
+		   
+		    let promise = new Promise(function(resolve,reject){
+				 // 1 秒后发出工作已经被完成的信号，并带有state "fulfilled"  result "done"
+				setTimeout(() => resolve("done"), 1000);
+			})
+			
+			let promise2 = new Promise(function(resolve,reject){
+				 // 1 秒后发出工作已经被完成的信号，并带有state "fulfilled"  result "done"
+				setTimeout(() => reject(new Error("哦！我弹出了一个错误")), 1000);
+			})
+			
+			//拿取承诺结果（Promise）。承诺结果必须是接受（result）或者拒绝（error）其一
+			
+			// .then(result=>{},error=>{})
+			/*
+			    .then 的第一个参数是一个函数，该函数将在 promise resolved 且接收到结果后执行。
+				.then 的第二个参数也是一个函数，该函数将在 promise rejected 且接收到 error 信息后执行。
+			*/
+			promise.then(
+			  result => alert(result), // 1 秒后显示 "done!"
+			  error => alert(error) // 不运行
+			);
+			promise2.then( result=>{alert(result)},error => alert(error))
+			
+			/*
+			
+			.catch(err=>{})
+			
+			如果我们只对 error 感兴趣，那么我们可以使用 null 作为第一个参数：.then(null, errorHandlingFunction)。
+			或者我们也可以使用 .catch(errorHandlingFunction)，其实是一样的：
+			.catch(f) 调用是 .then(null, f) 的完全的模拟，它只是一个简写形式	
+			*/
+		</script>
+	</body>
+</html>

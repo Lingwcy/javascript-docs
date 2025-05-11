@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+				js中定义函数有两种方式 
+				一是通过函数声明
+				二是通过函数表达式
+				
+				在更多更高阶的情况下 , 可以创建一个函数并立即调用
+				或者安排稍后执行，而不是存储在任何地方，因此保持匿名。
+			
+			*/
+		   
+		   //1.函数声明
+			function say1(){
+				alert("hello ling");
+			}
+			
+			//2.函数表达式
+			let say2 = function(){
+				alert("hello ling2")
+			};
+			
+			say2();
+		
+			//无论函数是如何创建的，函数都是一个值。上面的两个示例都在 say1,say2 变量中存储了一个函数
+			
+			//函数也是一个确定的值 所以如果直接调用变量名不加括号则会返回该变量的值（函数源码）
+			alert(say1);
+			//如果说函数的源码也是一个确切的值 那么函数也是可以传递的
+			let say3 = say2;
+			say3();//将say2函数源码复制给say3
+			
+			
+		</script>
+	</body>
+</html>

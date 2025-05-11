@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="show">实际输入:</div>
+    <form name="form1">
+        <input type="text" id="getText" onkeypress="dokeyPress(event)"/>
+    </form>
+
+    <script>
+        //event.keyCode 为输入的值
+        let div = document.getElementById('show')
+        function dokeyPress(event){
+            div.innerHTML += String.fromCharCode(event.keyCode) //将 fromCharCode >> Unicode 编码转为一个字符
+            if(event.keyCode<48 || event.keyCode >57){
+                event.returnValue = false
+            }
+
+        }
+    </script>
+</body>
+</html>

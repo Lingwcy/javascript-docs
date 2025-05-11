@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				原始数据类型的方法:
+					在 JavaScript 中有 7 种原始类型：string，number，bigint，boolean，symbol，null 和 undefined
+				
+				js在执行原始属性类型方法的原理:	
+					JavaScript 允许访问字符串，数字，布尔值等原始类型的方法和属性。
+					为了使它们起作用，创建了提供额外功能的特殊“对象包装器”，使用后即被销毁。
+					“对象包装器”对于每种原始类型都是不同的，它们被称为 String、Number、Boolean、Symbol 和 BigInt。因此，它们提供了不同的方法。
+					对象包装器的类型为Object
+					
+					过程: 
+					1.当访问原始类型的属性时 会将此原始值自动创建为一个'对象包装器'(object)的特殊对象
+					2.特殊对象使用方法并返回一个值
+					3.特殊对象自动销毁,只留下原始值
+			
+			*/
+		   
+		   //简单式例:
+		   let str ="anyWorld";
+		   console.log(str.toUpperCase());//ANYWORLD
+		/*
+		
+			以下是 str.toUpperCase() 中实际发生的情况：
+			
+			字符串 str 是一个原始值。因此，在访问其属性时，会创建一个包含字符串字面值的特殊对象，并且具有可用的方法，例如 toUpperCase()。
+			该方法运行并返回一个新的字符串（由 console.log() 显示）。
+			特殊对象被销毁，只留下原始值 str。
+		
+		*/
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				arr.slice([start], [end])
+				1.它会返回一个新数组，将所有从索引 start 到 end（不包括 end）
+				2.start 和 end 都可以是负数，在这种情况下，从末尾计算索引。
+				3.我们也可以不带参数地调用它：arr.slice() 会创建一个 arr 的副本。
+			
+			*/
+			
+			let arr = ["t", "e", "s", "t"];
+			console.log(arr.slice(0,2));// 't','e'
+			console.log(arr.slice(-2)); //'s','t'
+			console.log(arr.slice());//['t', 'e', 's', 't']
+		</script>
+	</body>
+</html>
