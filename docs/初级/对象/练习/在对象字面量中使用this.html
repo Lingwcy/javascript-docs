@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			"use strict";
+			/*
+			
+				出处 https://zh.javascript.info/task/object-property-this
+				
+				
+				这里 makeUser 函数返回了一个对象。
+				访问 ref 的结果是什么？为什么？
+			*/
+			function makeUser() {
+			  return {
+			    name: "John",
+			    ref: this ,//此处this是在定义时使用 为一般的函数调用 值在严格模式下 为undefined 
+				//所以 ref: this 实际上取的是当前函数的 this。
+			  };
+			}
+			
+			let user = makeUser();
+			
+			//alert( user.ref.name ); // 结果是一个错误 Cannot read properties of undefined (reading 'name')
+			
+			
+			
+			//反例 在方法中调用的this
+			function makeUser2() {
+			  return {
+			    name: "John",
+				ref(){
+					return this;
+				}
+			  };
+			}
+			user = makeUser2();
+			console.log(user.ref().name);//此处的this由ref()调用
+		</script>
+	</body>
+</html>

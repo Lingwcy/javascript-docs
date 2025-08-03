@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			//在进行算术计算时 会自动将数据转换成number进行计算
+			alert("6"/"2");
+			//同时也可以显式的进行转换
+			let msg="666";
+			console.log(typeof msg);
+			msg=Number(msg);
+			console.log(typeof msg)
+			//如果转换时从string中读取的不是数字时 则会返回NaN(指的是number的计算错误 所以仍然会转换成number) 
+			let age =Number("这不是一个数字");
+			console.log(age);
+			console.log(`age结果类型为 ${typeof age}`)
+			
+			/*
+			
+				number 类型转换规则：
+				
+				值	变成……
+				undefined	NaN
+				null	0
+				true 和 false	1 and 0
+				string	去掉首尾空格后的纯数字字符串中含有的数字。
+				如果剩余字符串为空，则转换结果为 0。否则，将会从剩余字符串中“读取”数字。当类型转换出现 error 时返回 NaN。
+			
+			*/
+			console.log(Number("   666  "));//去掉空格转换number
+			console.log(Number("23z"));//转换错误 NaN
+			console.log(Number(true));//1
+			console.log(Number(false));//0
+			
+		</script>
+	</body>
+</html>

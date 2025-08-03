@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			方括号访问属性
+			*/
+			
+			//方括号设置属性
+			//使用b的值作为键 ccc 作为value
+				let a={one:"ddd"};
+				let b= "two";
+				a[b]="ccc";
+				alert(a[b]);
+				alert(a.two);
+			
+			//通过function生成属性
+			let maker=(name,age) =>{
+				return{
+					name:name,
+					age:age,
+				};
+			};
+			let user= maker("john",45);
+			console.log(user.age);
+			console.log(user.name);
+			
+			//上面栗子属性名跟变量名一样。这种通过变量生成属性的应用场景很常见，在这有一种特殊的 属性值缩写法，使属性名变得更短。
+			let maker2=(name,age) => {
+				return{
+					name, // 与 name: name 相同
+					age,  // 与 age: age 相同
+				};
+			};
+			user = maker2("jack",55);
+			console.log(user.age);
+			console.log(user.name);
+		</script>
+	</body>
+</html>

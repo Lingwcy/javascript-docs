@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				1.计算长度: length  注意：这是一个属性 不是方法 这与其他语言不一样 
+				2.改变大小写: toLowerCase() 和 toUpperCase() 方法可以改变大小写： 此方法并没有改变字符串本身 只是返回一个新字符串
+								
+				3.查找子串:
+						1.str.indexOf(substr, pos)。[第二个参数是可选参数 如果不写就从0开始查找]
+						  它从给定位置 pos 开始，在 str 中查找 substr，如果没有找到，则返回 -1，否则返回第一个子串匹配成功的位置。
+						2.更现代的方法 str.includes(substr, pos) 根据 str 中是否包含 substr 来返回 true/false。
+						  如果我们需要检测匹配，但不需要它的位置，那么这是正确的选择：
+			*/
+			
+			//计算长度
+				let str="hello";
+				console.log(str.length);
+			//改变大小写
+				console.log(str.toLowerCase());
+				console.log(str.toUpperCase());
+				console.log(str[0].toUpperCase());
+				
+				
+			//查找子串
+				//1.str.indexOf(substr, pos)
+				let str2= "Widget with id";
+				console.log(str2.indexOf("Widget"));//0
+				console.log(str2.indexOf("widget"));//-1 大小写是敏感的
+				console.log(str2.indexOf("id"));//1 这是第一个id
+				console.log(str2.indexOf("id",2));//12 这是第二个id
+				
+				console.log("=========在字符串中连续查找相同子串=========")
+				str = 'As sly as a fox, as strong as an ox';				
+				let target = 'as'; // 这是我们要查找的目标				
+				let pos = 0;
+				while (true) {
+				  let foundPos = str.indexOf(target, pos);
+				  if (foundPos == -1) break;
+				
+				  console.log( `Found at ${foundPos}` );
+				  pos = foundPos + 1; // 继续从下一个位置查找
+				}
+				
+				//简化的写法
+				console.log("=========在字符串中连续查找相同子串2=========")
+				pos=-1;
+				while( (pos = (str.indexOf(target,pos+1))) != -1){
+					console.log(pos);
+				}
+				
+				
+				//2. str.includes(substr,pos)
+				str ="Widget with id";
+				console.log("======str.includes(substr,pos)=====");
+				console.log(str.includes("id"));//true
+				console.log(str.includes("get",6));//false
+		</script>
+	</body>
+</html>

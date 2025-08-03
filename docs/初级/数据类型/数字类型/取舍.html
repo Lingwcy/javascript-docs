@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+			对数字小数进行取舍
+			
+				Math.floor(变小)
+				向下舍入：3.1 变成 3，-1.1 变成 -2。
+				Math.ceil(变大)
+				向上舍入：3.1 变成 4，-1.1 变成 -1。
+				Math.round(就近取整)
+				向最近的整数舍入：3.1 变成 3，3.6 变成 4，中间值 3.5 变成 4。
+				Math.trunc（IE 浏览器不支持这个方法）
+				移除小数点后的所有内容而没有舍入：3.1 变成 3，-1.1 变成 -1。
+				toFixed(n) 将数字舍入到小数点后 n 位，并以字符串形式返回结果
+			
+			*/
+		   
+		   console.log(Math.floor(3.4));//地板 3
+		   console.log(Math.ceil(3.4));//天花板 4
+		   console.log(Math.round(3.4));//就近 3
+		   console.log(Math.trunc(3.4));//移除 3
+			
+			
+			//将数字舍入到小数点后 n 位    1.2345 = > 1.23
+			//1.乘除法
+			console.log(Math.round( 1.2345*100 )/100);
+			//2.toFixed(n)方法
+			console.log(+1.2345.toFixed(2));//返回的是字符串 + 号转换为数字
+		</script>
+	</body>
+</html>

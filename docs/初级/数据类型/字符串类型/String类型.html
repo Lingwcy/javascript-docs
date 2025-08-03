@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+				三种声明方式:
+				
+				    双引号："Hello".
+				    单引号：'Hello'.
+				    反引号：`Hello`.
+
+			*/
+			let str = "LING";
+			let str2 = '单引号也能放字符串';
+			let phrase = `反引号可以填写占位符 ${str}` ;
+			console.log(phrase);
+			
+			//反引号是 功能扩展 引号。它们允许我们通过将变量和表达式包装在 ${…} 中，来将它们嵌入到字符串中
+			console.log(`计算结果是 ${1+2}`);
+			
+			//反引号允许我们赋值换行
+			let number=`+86
+						-177
+						-445
+						-566`;
+			
+			/*
+			
+			JavaScript 中没有 character 类型。
+			
+			在一些语言中，单个字符有一个特殊的 “character” 类型，在 C 语言和 Java 语言中被称为 “char”。
+			
+			在 JavaScript 中没有这种类型。只有一种 string 类型，一个字符串可以包含零个（为空）、一个或多个字符。
+
+		
+			*/
+		   
+		   
+		   
+		   //访问字符串的字符
+		   /*
+		   
+				两种方法:
+				1.方括号法
+				2.ChatAt()方法
+				
+				方括号是获取字符的一种现代化方法，而 charAt 是历史原因才存在的。
+				
+				它们之间的唯一区别是，如果没有找到字符，[] 返回 undefined，而 charAt 返回一个空字符串：
+		   
+		   */
+		    str = "hello";
+		  //1.方括号法
+		   console.log(str[0]);// 'h'
+		   console.log(str[999]);//undefined
+		   
+		  //2.charAt()
+		   console.log(str.charAt(0)); //'h'
+		   console.log(str.charAt(666)); //''
+		   
+		   
+		
+		
+		
+		//遍历字符
+		/*
+		
+			JavaScript for of 语句循环遍历可迭代对象的值。
+			
+			它允许您循环遍历可迭代的数据结构，例如数组、字符串、映射、节点列表等：
+			
+			
+		*/
+	   let str6 = "I\'m the King";
+	   for(let char of str6){
+		   console.log(char);
+	   }
+		   
+		</script>
+</html>

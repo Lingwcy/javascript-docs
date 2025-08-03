@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+				直观上为“空”的值（如 0、空字符串、null、undefined 和 NaN）将变为 false。
+				其他值变成 true。
+			*/
+			console.log(Boolean(0));//false
+			console.log(Boolean(1));//true
+			console.log(Boolean(""));//false
+			console.log(Boolean(null));//false
+			console.log(Boolean(undefined));//false
+			console.log(Boolean(NaN));//false
+			//请注意：包含 0 的字符串 "0" 是 true
+			console.log(Boolean("0"));//true
+			
+		</script>
+	</body>
+</html>

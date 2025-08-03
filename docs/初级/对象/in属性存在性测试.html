@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				JS对象有一个特性 对象能够访问任何属性  即使属性不存在也不会报错
+				
+				 如果此属性不存在则会返回undefined 可以据此来判断此属性是否存在
+			
+			*/
+			let user={};
+			console.log(user.somekey ?? "somekey属性不存在" );
+			
+			//js提供了一种更简便的关键字 'in' 来判断属性是否存在
+			user={
+				age:15,
+			};
+			console.log("age" in user);//true
+			console.log("bug" in user);//false
+			
+			/*
+			
+				需要注意 in 的左边必须是 属性名。通常是一个带引号的字符串。
+				
+				如果我们省略引号，就意味着左边是一个变量
+				
+			*/
+		   const age = "age";
+		   console.log(age in user);//true 这里的age是一个变量
+		   
+		   
+		</script>
+	</body>
+</html>

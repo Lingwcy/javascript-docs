@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			
+			/*
+				arr.sort(value)
+				默认是对数组的元素作为字符串进行升序排序。
+				
+				如果我们想自定义排序 则可以在value 处写入自己的函数
+				具体规则:
+					该函数比较两个值的大小(a,b)，然后返回一个用于说明这两个值的相对顺序的数字。
+					当返回值大于0时，a放在b的后面；
+					当返回值小于0时，a放在b的前面
+					当返回值等于0时，ab位置不改变
+					
+				此方法会修改本身 而且会返回本身
+				
+				return a-b时总是升序，return b-a时总是降序
+				
+			*/
+			console.log([1,2,15].sort()); //1,15,2 可以看出对于字符串排序 数字显得不管用了
+			
+			let arr=[1,2,15];
+			arr.sort((a,b)=>a-b); //a-b 升序
+			console.log(arr);
+			
+			
+			//看具体细节 这是a-b升序
+			arr=[1,2,15];
+			arr.sort(function(a,b){
+				console.log(`现在要比较的是 ${a} 和 ${b}`);
+				if(a>b) return 1;
+				if(a==b) return 0;
+				if(a<b) return -1;
+			})
+			console.log(arr);
+		</script>
+	</body>
+</html>

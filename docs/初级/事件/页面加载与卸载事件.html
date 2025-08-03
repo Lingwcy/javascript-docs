@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="show">HELLO jAVASCRIPT</div>
+    <a href="./事件处理程序.html">跳转到另一个页面</a>
+    <script>
+        window.onbeforeunload=goaway
+        window.onload=change
+    
+        function change(){
+            alert("文档已经加载完毕")
+            let d = document.getElementById("show")
+            d.style='font-size:40px; color:red'
+        }
+        function goaway(){return '询问' }
+    </script>
+</body>
+</html>

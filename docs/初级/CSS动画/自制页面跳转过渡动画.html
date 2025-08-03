@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="TrunPage">
+			<div class="PageLoadingBar"></div>
+			<div class="PageLoadingBar"></div>
+			<div class="PageLoadingBar"></div>
+			<div class="PageLoadingBar"></div>
+			<div class="PageLoadingBar"></div>
+		</div>
+		<span class="TrunPage-font">加载中...</span>
+	</body>
+	<style>
+			
+		body{
+			width: 100vw;
+			height: 100vh;
+			background-color: darkgray;
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+			
+		.TrunPage{
+			width: 400px;
+			height: 200px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.PageLoadingBar{
+			height: 80%;
+			width: 10%;
+			transform: scale(0.5);
+			background-color: skyblue;
+			animation-name:BarMove ;
+			animation-duration: 2s;
+			animation-direction: alternate;
+			animation-iteration-count: infinite;
+		}
+		
+		@keyframes BarMove {
+			from{
+				transform: translateY(0px);
+				transform: scale(0.5);
+			}
+			25%{
+				transform: translateY(-50px) scale(1);
+				border-radius: 50%;
+				background-color: royalblue;
+			}
+			to{
+				transform: translateY(50px) scale(0.5);
+				border-radius: 10%;
+			}
+		}
+		.TrunPage-font{
+			font-size: 30px;
+		}
+	</style>
+</html>

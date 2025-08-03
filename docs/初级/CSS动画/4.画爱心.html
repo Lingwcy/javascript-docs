@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="heart">
+			
+		</div>
+	</body>
+	
+	<style>
+		body{
+			width: 100vw;
+			height: 100vh;
+			background-color: darkgray;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+			
+		.heart{
+			width: 200px;
+			height: 200px;
+			background-color: #e74c3c;
+			transform: rotate(223deg) scale(1);
+			animation-name: bounce;
+			animation-duration: 2s;
+			opacity: 1;
+			animation-iteration-count: infinite;
+		}
+		
+		@keyframes bounce {
+			25%{
+				opacity: 1;
+				transform: rotate(223deg) scale(1);
+			}
+			50%{
+				opacity: 0.5;
+				transform: rotate(223deg) scale(.5);
+			}
+				
+			75%{
+				opacity: 1;
+				transform: rotate(223deg) scale(1);
+			}
+			
+			85%{
+				opacity: 0.5;
+				transform: rotate(223deg) scale(.5);
+			}
+			
+			to{
+				opacity: 1;
+				transform: rotate(223deg) scale(1);
+			}
+		}
+		.heart::before{
+			content: '';
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			transform: translateX(100px);
+			background-color: #e74c3c;
+		}
+		.heart::after{
+			content: '';
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			transform: translateY(100px);
+			background-color: #e74c3c;
+		}
+	</style>
+</html>

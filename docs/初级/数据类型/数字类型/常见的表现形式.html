@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				JavaScript中 数字有两种类型:
+				1.双精度浮点数
+				2.BigInt大数
+			
+			*/
+		   //下面是常见的数学表示方法
+		   
+		   let thousand= 1000;//最常见
+		   console.log(1_000); // ‘_’ 为分隔符 起到便于阅读作用 无实意
+		   console.log(1e3); //表示 1*10的三次方 1*1000
+		   console.log(1e-3); // 1 / 10的三次方  1/1000 
+		   
+		   //表示进制
+				/*
+					十六进制:0x
+				    八进制:0o
+					二进制:0b
+				*/
+		   let a = 0b11111111; // 二进制形式的 255
+		   let b = 0o377; // 八进制形式的 255
+		   let c = 0xff; // 十六进制 255
+		   console.log(a==b && b==c && a==c); // true，两边是相同的数字，都是 255
+			
+		</script>
+	</body>
+</html>

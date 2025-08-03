@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+				浅拷贝的前提: 对象中的键值对都是基本数据类型 没有 引用类型
+				如果 对象中也还嵌套对象 那么进行浅拷贝 新对象仍然会共用嵌套对象的键值对
+				
+				
+				
+				对象是引用类型  想创建新的对象 进行简单的赋值操作不可行 
+				浅拷贝对象旨在拷贝对象的键值对 具体方法是 先创建一个新的空值对象 然后使用 for in 循环进行键值对的复制
+				//
+				对象浅拷贝有两种方法
+				1.创建空值对象 for...in进行键值对复制.
+				2.使用Object类特有的方法来进行对象拷贝
+					语法格式  Object.assign(dest, [src1, src2, src3...])
+						dest:克隆的目标对象
+						src1...src3:是若干个需要拷贝的源对象
+						该方法将所有源对象的属性拷贝到目标对象 dest 中。
+						换句话说，从第二个开始的所有参数的属性都被拷贝到第一个参数的对象中。
+						调用结果返回 dest。
+			
+			*/
+		   //方法一:
+		   console.log("==============方法1=============");
+			let obj1= {
+				name:"bob",
+				age:18,
+				
+			};
+			
+			for(let key in obj1){
+				console.log(`${key}  =  ${obj1[key]}`);
+			}
+			
+			let obj2={};//obj2 没有对 obj1 进行引用 所以是一个新对象
+			//克隆
+			for(let key in obj1){
+				obj2[key]=obj1[key]; //向obj2中添加了一个以key为键 以obj1[key]为value的键值对
+				console.log(`${key}  =  ${obj2[key]}`); //输出打印
+			}
+			
+			
+			//测试
+			console.log("==============方法一验证性测试=============");
+			obj2["name"]="jack";
+			obj2["age"]=22;
+			console.log("obj2遍历");
+			for(let key in obj2){
+				console.log(`${key} = ${obj2[key]}`);
+			}
+			console.log("obj1遍历");
+			for(let key in obj1){
+				console.log(`${key} = ${obj1[key]}`);
+			}
+			
+			//方法二:
+			console.log("==============方法2=============");
+			let obj3 = Object.assign({},obj1); //克隆obj1到空对象{} 并返回对象(克隆以后不是空对象) 并 赋值给obj3
+			console.log("obj3遍历");
+			for(let key in obj1){
+				console.log(`${key} = ${obj1[key]}`);
+			}
+		</script>
+	</body>
+</html>

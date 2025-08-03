@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ceshi14</title>
+</head>
+<body>
+    <div id="name">
+    </div>
+    <div> 
+
+        <audio id="yinp"   controls="controls"autoplay="autoplay" >
+            <source id="ss" src="Ash - Melody (Original mix).mp3" type="audio/mpeg" />
+        </audio>
+    </div>
+    <script>
+        //在谷歌浏览器输入  chrome://flags/#autoplay-policy 
+        // 第一个选项 Autoplay policy  设置为 no user gesture is required  ：谷歌浏览器要调 才可以自动播放
+        var i = 0;
+        var shu = ['Ash - Melody (Original mix).mp3','Darling.mp3'];//音频路径(转码)
+ 
+        //控制播放 currentTime
+        window.onkeydown = function (event) {
+            var yinp = document.getElementById('yinp');
+            if (event.keyCode == 32) {//空格控制播放
+                if (yinp.paused) {//判断音频是否暂停
+                    yinp.play();
+                } else {
+                    yinp.pause();
+                }
+            }
+            if (event.keyCode == 13) {//回车控制是否禁音
+                if (yinp.muted) {
+                    yinp.muted = false;
+                } else {
+                    yinp.muted = true;
+                }
+            }
+ 
+            if (event.keyCode == 27) {//Esc键关闭
+                window.close();
+            }
+ 
+            if (event.keyCode == 39) {//右方向键快进
+                yinp.pause();
+                if (yinp.currentTime < yinp.duration-5) {//duration:音频总长度   currentTime：音频当前进度（当前长度）
+                    yinp.currentTime += 1
+                }             
+            }
+ 
+            if (event.keyCode == 37) {//左方向键快退
+                yinp.pause();
+                if (yinp.currentTime>1) {
+                    yinp.currentTime -= 1
+                }               
+            }
+ 
+            if (event.keyCode == 38) {//上方向键：上一曲（第一曲没作用）
+                yinp.pause();
+                if (i>0) {
+                    i--;
+                } else {
+                    i = 0;
+                }
+                yinp.load();
+                document.getElementById('ss').src = '' + shu[i] + '';
+            }           
+         
+            if (event.keyCode == 40) {//下方向键：下一曲
+                yinp.pause();
+                if ((i + 1) == shu.length) {
+                    i = 0;
+                } else {
+                    i++;
+                }
+                yinp.load();
+                document.getElementById('ss').src = '' + shu[i] + '';
+            }
+        };
+        //按键松开时播放
+        window.onkeyup = function (event) {
+            var yinp = document.getElementById('yinp');
+            if (event.keyCode == 39) {
+                yinp.play();
+            }
+            if (event.keyCode == 37) {
+                yinp.play();
+            }
+            if (event.keyCode == 38) {
+                yinp.play();
+            }
+            if (event.keyCode == 40) {
+                yinp.play();
+            }
+        }
+ 
+       //鼠标滚轮改变音量大小
+        window.onwheel = function (event) {
+            var yinp = document.getElementById('yinp');
+            var pan = 0;
+            if (event.wheelDelta) {            
+                 pan = ((event.wheelDelta / 150) * 0.01).toFixed(2);              
+            }
+            if (event.detail) {
+                pan = ((-event.detail / 3 ) * 0.01).toFixed(2);
+            }
+            var volume = Number((yinp.volume).toFixed(2));
+            if (volume + Number(pan) > 1 || volume + Number(pan) < 0) {
+ 
+            } else {
+                yinp.volume = volume + Number(pan);
+            }
+        }
+         
+        function gename() {//歌名
+            var name = document.getElementById('name');
+            var s = decodeURI(shu[i])//解码
+            var pp = /([^\\/]+)\.([^\\/]+)/i;//正则匹配歌名
+            pp.test(s);
+            name.innerHTML = RegExp.$1;
+        }
+       
+        var yinp = document.getElementById('yinp');
+        yinp.onplay = gename;//播放时显示歌名
+        yinp.onended = function () {//结束时自动下一曲
+            if ((i+1)==shu.length) {
+                i = 0;
+            } else {
+                i++;
+            }
+            yinp.load();//重新加载
+            document.getElementById('ss').src = '' + shu[i] + '';//更换音频路径
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+				异步执行某项功能的函数应提供一个callback函数为参数
+				便于在某项功能完成之后触发
+				
+				本例中的相应事件是指脚本加载
+			*/
+		   
+	//    function loadScript(src,callback){
+	// 	console.log("start loading javascript")
+	// 		   let script = document.createElement('script');
+	// 		   script.src=src;
+	// 		   script.onload=()=>callback(script);
+	// 		   document.head.append(script);
+	// 	   }
+		   
+	// 	   loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', script => {
+	// 	     alert(`脚本 ${script.src} 加载完成 开始加载脚本2`);
+	// 	     //alert( _ ); // _ 是所加载的脚本中声明的一个函数
+	// 	   			 loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js',function(){
+	// 	   				 alert(`脚本2 加载完成 `);
+	// 	   			 })
+	// 	   }); 
+		   
+		   
+		   
+		   //改进版  可以检测加载过程中的错误
+		   function loadScript2(src, callback) {
+		     let script = document.createElement('script');
+		     script.src = src;
+		   
+		     script.onload = () => callback(null,script);
+		     script.onerror = () => callback(new Error(`Script load error for ${src}`));
+		   
+		     document.head.append(script);
+		   }
+		   
+		   loadScript2('https://cn.bing.com/sa/56360353/Blue/BlueIdentityDropdownRedirect_c.js', (error,script)=> {
+		     if (error) {
+		       alert(`加载发生错误 ${error}`)
+		     } else {
+		       alert(`加载成功 ${script.src}`)
+		     }
+		   });
+		
+		</script>
+	</body>
+</html>

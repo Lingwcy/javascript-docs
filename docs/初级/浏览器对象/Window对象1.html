@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>Begin</div>
+
+    <ul>
+      <li>Information</li>
+    </ul>
+  
+    <div>End</div>
+
+    <script>
+            /*
+
+
+                childNodes 看起来就像一个数组。但实际上它并不是一个数组，而是一个 集合 —— 一个类数组的可迭代对象。
+
+                */
+            for (let node of document.body.children) {
+            console.log(node); // 显示集合中的所有节点
+            }
+      </script>
+</body>
+</html>

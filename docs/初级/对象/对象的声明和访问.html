@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+					
+					对象的声明
+					1.构造函数 语法
+					2.字面量 语法
+					
+					对象属性名不受保留字影响
+					多字词语用方括号来访问
+				
+			*/
+		   
+		   
+		//创建一个空对象:
+			   //1.构造函数
+			   let msg = new Object();
+			   //2.字面量
+			   let msg2 = {};
+
+		//创建存放属性的对象
+			let info = {
+				name:"wang",
+				age:"20",
+				job:"student",
+				"小王 是猪":true,  //多字词语来作为属性名 此属性名有空格不是有效的标识符 所以 点操作无法访问此属性 使用方括号访问
+			}
+			
+		//访问对象的属性
+			//1.点操作访问属性
+			console.log(info.name);
+			console.log(info.age);
+			
+			//2.使用方括号访问属性
+			console.log(info["小王 是猪"]);
+			console.log(info["age"]);
+			
+		//删除对象的属性
+			delete info["job"];
+			console.log(info.job);//undefined
+			
+		//方括号提供了用任意表达式来访问属性的灵活方式
+			let john ={
+				name:"john",
+				age:"22",
+				sex:"man",
+			}
+			let res = prompt("你想了解 john 的什么信息(name,age,sex)","name");
+			alert(john[res]);
+			//点操作不能这样访问 res没有在john对象定义 john.res 是undefined
+			alert(john.res);//undefined
+		
+		//方括号通过属性字面量 计算属性
+			let select = prompt("选择购买的商品","水果");
+			let fruit = {
+				[select]:5
+			}
+			alert(fruit[select]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.1.js"></script>
+</head>
+<body>
+    <img id="ccc" src="./pickl.jpg" width="200" height="160">
+    <script>
+        $("document").ready(function(){alert('welcome to Jquery!')})
+        $("#ccc").click(
+            function(){
+                $(this).slideUp(2000)//向上卷动 2s   消失 
+            }
+        )
+        
+    </script>
+</body>
+</html>

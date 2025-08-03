@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				arr.concat 创建一个新数组，其中包含来自于其他数组和其他项的值。
+				arr.concat(arg1, arg2...)
+				返回一个 arr+arg1+arg2合并的新数组
+			*/
+		   let arr = [1,2];
+		   console.log(arr.concat(3,4)); // 1,2,3,4
+		   
+		   let arr2 = [5,6,7,8];
+		   console.log(arr.concat(arr2));// [1, 2, 5, 6, 7, 8]
+		   console.log(arr.concat(3,4,arr2));//[1, 2, 3, 4, 5, 6, 7, 8]
+			
+		</script>
+	</body>
+</html>

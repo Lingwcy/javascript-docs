@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				Infinity（和 -Infinity）是一个特殊的数值，比任何数值都大（小）。
+				NaN 代表一个 error。
+			
+				isNaN(value)将value转换为Number并判断是否为NaN
+				isFinite(value)将value转换为Number并判断是否不为NaN/Infinity 如果不是就返回true
+			
+			*/
+		   
+		   
+		//isNaN(value)
+		   console.log(isNaN(NaN));//true
+		   console.log(isNaN("hello"));//true
+		   
+		   //为什么会需要这个函数？ 不能直接判断 NaN===NaN 吗？
+		   //很不幸，这不行。值 “NaN” 是独一无二的，它不等于任何东西，包括它自身：
+		   console.log(NaN===NaN);//false
+		
+		
+		
+		//isFinite(value)
+			//主要用来判断一个值是否为正常的数字类型
+			console.log(isFinite("233"));//true
+			console.log(isFinite(Infinity));//false
+			console.log(isFinite(NaN));//false
+			console.log(isFinite(Object));//false
+			console.log(isFinite("233w"));//false
+		</script>
+	</body>
+</html>

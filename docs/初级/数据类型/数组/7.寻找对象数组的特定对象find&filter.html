@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			arr.find
+			1.	let result = arr.find(function(item, index, array) {
+			  // 如果返回 true，则返回 item 并停止迭代
+			  // 对于假值（falsy）的情况，则返回 undefined
+			  
+			  
+			2.  arr.findIndex 方法（与 arr.find）具有相同的语法，但它返回找到的元素的索引，而不是元素本身。如果没找到，则返回 -1。
+			  
+			3.  arr.findLastIndex 方法类似于 findIndex，但从右向左搜索，类似于 lastIndexOf。
+			});
+			
+			item 是元素。
+			index 是它的索引。
+			array 是数组本身。
+			
+			
+			
+			
+			arr.filter()
+			如果需要匹配的有很多，我们可以使用 arr.filter(fn)。
+			
+			语法与 find 大致相同，但是 filter 返回的是所有匹配元素组成的数组：
+			
+			*/
+			
+			let stu = [
+				{name:"wang",age:20},
+				{name:"zhang",age:18},
+				{name:"xu",age:19},
+				{name:"liu",age:21}
+			];
+			
+			let res = stu.find(function(item){
+				console.log(item.name);
+				if(item.name=="xu") return true;
+			});
+			console.log(res);
+			
+			let res2 = stu.find(item=>item.name=="zhang");
+			console.log(res2);
+			
+			console.log(stu.findIndex(item => item.name=="xu")); // 2
+			
+			
+			//arr.filter()
+			let res3 = stu.filter(item=>item.age<20);//返回年龄小于20的对象数组
+			console.log(res3);
+		</script>
+	</body>
+</html>

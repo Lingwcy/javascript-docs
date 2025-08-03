@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			下面式例将模拟一系列的异步任务要一个接一个地执行 
+			*/
+			   
+		   let promise= new Promise((resolve,reject)=>{
+			   setTimeout(()=>{resolve(1)},1000)
+		   }).then((res)=>{
+			   console.log(`任务${res}已经解决`)
+			   return res
+		   }).then(res=>{
+			   console.log(`任务${res*2}已经解决`)
+			   return res*2
+		   }).then(res=>{
+			   return new Promise((resolve,reject)=>{
+				  setTimeout(()=>{reject(new Error("我注定会失败"))},1000) 
+			   })
+			   /*承诺在此失败后会就近寻找最近的catch处理程序 所以下面的then不会执行*/
+		   }).then(res=>{
+			    /* 不在这里运行 因为此then方法没有error处理参数！*/
+			   console.log(`任务${res*2}已经解决`)
+			   return res*2
+		   }).catch(err=>{
+			   console.log(`触发了异常！！${err}`)
+			  throw new Error("catch中的错误")
+			  /*
+			  catch中的异常会被下层的catch捕获 程序会正常完成
+			  */
+		   }).catch(err=>{
+			   console.log(err)
+		   }).then(()=>{
+			   console.log('任务安全执行结束')
+		   })
+		   setTimeout(()=>{console.log((promise))},3000)
+		</script>
+	</body>
+</html>

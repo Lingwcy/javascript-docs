@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			
+			Map是一个带有键值对(Key,Value)的集合,与对象不同的是 Map的key可以存储任何数据类型
+			
+			new Map() —— 创建 map。
+			map.set(key, value) —— 根据键存储值。
+			map.get(key) —— 根据键来返回值，如果 map 中不存在对应的 key，则返回 undefined。
+			map.has(key) —— 如果 key 存在则返回 true，否则返回 false。
+			map.delete(key) —— 删除指定键的值。
+			map.clear() —— 清空 map。
+			map.size —— 返回当前元素个数。
+			
+			*/
+		   
+		   let map = new Map();
+		   //map 的 key 可以是任意属性
+		   map.set('1','str1'); //字符串键
+		   map.set(1,'num1'); //数字键
+		   map.set(true,'bool1'); //布尔值键
+		   
+		   console.log(map.get('1')); //str1
+		   console.log(map.get(1)); //num1
+		   console.log(map.size);
+		   
+		   
+		   //MAP的属性也可以是对象
+		   let john= {name:"John"};
+			let CountMap= new Map();
+			CountMap.set(john,123);
+			console.log(CountMap.get(john));
+			
+		   
+		
+		   
+		</script>
+	</body>
+</html>

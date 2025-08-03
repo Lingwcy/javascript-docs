@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/**
+			 * 
+			 * 全局symbol
+			 * Symbol.For()
+			 * Symbol.keyFor() 来返回描述
+			 * 该调用会检查全局注册表，如果有一个描述为 key 的 symbol，
+			 * 则返回该 symbol，否则将创建一个新 symbol（Symbol(key)），并通过给定的 key 将其存储在注册表中。
+			 * 
+			 */
+			
+			let sb1 = Symbol.for("jack"),//此时jack不存在 则创建
+				sb2 = Symbol.for("jack");//此时Jack存在 直接引用
+				
+				console.log(sb1==sb2); //true 说明是同一个Symbol
+				console.log(Symbol.keyFor(sb2));
+		</script>
+	</body>
+</html>

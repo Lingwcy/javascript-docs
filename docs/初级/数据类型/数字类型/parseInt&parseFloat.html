@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				对于其他类型向数字类型转换时 Number(value)与 '+' 的转换方式是严格的
+				如果一个值不完全是一个数字，就会失败
+				
+				parseInt(value) && parseFloat(value)
+				可以从字符串中 “读取” 数字，直到无法读取为止。
+				如果发生 error，则返回收集到的数字。
+				函数 parseInt 返回一个整数，而 parseFloat 返回一个浮点数
+				如果一开始就是错误的则返回NaN
+			
+			*/
+		   
+		   console.log(parseInt("123asd"));//123
+		   console.log(parseInt("a123"));//NaN
+		   console.log(parseFloat("12.222.2"));//12.222
+			
+		</script>
+	</body>
+</html>

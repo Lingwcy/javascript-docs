@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			/*
+			
+				构造器的主要目的 —— 实现可重用的对象创建代码。
+				构造函数在技术上是常规函数。不过有两个约定：
+				
+				它们的命名以大写字母开头。
+				它们只能由 "new" 操作符来执行。
+			
+			*/
+			
+			function User(name){
+				//隐式的创建空对象 this={}
+				this.name=name;
+				this.isAdmin=false;
+				this.sayHi = ()=>{
+					console.log(`你好 我是${this.name}`);
+				}
+				//如果没有return 则隐式的返回 this
+				console.log(`构造器调用 ${this.name}`);
+			}
+			
+			let user1 = new User("jack"),
+				user2 = new User("Anna");
+			
+			console.log(user1);console.log(user2);
+			console.log(user1.sayHi());
+			
+			
+		//构造器模式测试：new.target
+				/*
+				
+					我们可以使用 new.target 属性来检查它是否被使用 new 进行调用了。
+					
+					对于常规调用，它为 undefined，对于使用 new 的调用，则会返回函数值：
+				
+				*/
+			   console.log("========new.target========");				   
+			   function Check(value){
+				   console.log(new.target);
+			   }
+			   new Check();
+			   Check();
+			  
+			  //我们也可以让 new 调用和常规调用做相同的工作 使得更加灵活
+			  function User2(name){
+				  if(!new.target){
+				  	console.log("检测到未使用 new 自动创建");
+				  	return new User2(name); 
+				  }//如果 调用者没有new 则返回一个 new User2(name)
+			  	this.name=name;
+			  	this.isAdmin=false;
+			  	console.log(`构造器调用 ${this.name}`);
+			  }
+			  let user3 = User2("bob");
+		</script>
+	</body>
+</html>
