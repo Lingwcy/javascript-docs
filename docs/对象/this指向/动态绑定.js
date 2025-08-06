@@ -45,6 +45,10 @@ console.log(xiaoming.displayName.call(lihua)) //lihua
 /**
  * 如果省略第一个 thisArg 参数，则默认为 undefined。
  * 在非严格模式下，this 值将被替换为 globalThis（类似于全局对象）。
+ * 
+ * 为什么 this不指向 xiaoming？
+    call()的调用方式完全覆盖了原始的调用上下文。xiaoming.displayName只是获取函数，但 .call()决定了函数如何被调用。
+    由于 call()没有传递 thisArg，所以 this不会指向 xiaoming，而是回退到默认绑定（全局对象）
  */
 console.log(xiaoming.displayName.call()) 
 
