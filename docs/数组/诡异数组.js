@@ -12,8 +12,9 @@ const arr2 = new Array(5)
 console.log(arr2.length) // 5 个 empty item
 
 //也可以使用 Array.of 静态方法来创建包含单个元素的数组
-const arr3 = Array.of(5)
+const arr3 = Array.of(5,5,6,5,[5,4,1,8,4])
 console.log(arr3.length) // 1
+console.log(arr3)
 
 
 

@@ -50,17 +50,17 @@ console.log(Book.prototype)
 
 /**
  * ## 
-完全替换了`Book`的原型对象，
-但新的原型对象`bookPrototype`没有`constructor`属性。
-这会导致通过`new Book()`创建的实例的`constructor`属性不正确（或丢失）。
-设置`Book.prototype.constructor = Book;`是为了修复这个问题，确保所有`Book`实例的构造器引用都正确地指向`Book`函数。这是JavaScript原型继承中的一种常见模式，用于维护正确的原型链关系。
+    完全替换了`Book`的原型对象，
+    但新的原型对象`bookPrototype`没有`constructor`属性。
+    这会导致通过`new Book()`创建的实例的`constructor`属性不正确（或丢失）。
+    设置`Book.prototype.constructor = Book;`是为了修复这个问题，确保所有`Book`实例的构造器引用都正确地指向`Book`函数。这是JavaScript原型继承中的一种常见模式，用于维护正确的原型链关系。
 
-所以第7行应该更正为`bookPrototype`。
+    所以第7行应该更正为`bookPrototype`。
  */
 Book.prototype = bookPrototype;
-Book.prototype.constructor = Book;  
 
 const commonBook = new Book("harry","story");
+console.log(commonBook.constructor === Book)
 commonBook.displayInfo()
 
 /**
