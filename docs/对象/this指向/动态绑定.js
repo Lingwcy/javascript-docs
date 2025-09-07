@@ -32,15 +32,15 @@ const lilei = {
 const lihua = {
     name:"lihua"
 }
-// 1. Function.prototype.call()
+// 1. Function.prototype.call(this,args1,args2,args3)
 /**
  *  这个函数几乎与 apply() 相同，只是函数的参数以列表的形式逐个传递给 call()，
  *  而在 apply() 中它们被组合在一个对象中，通常是一个数组——例如，func.call(this, "eat", "bananas") 与 func.apply(this, ["eat", "bananas"])。
  */
 console.log(xiaoming.displayName.call(lilei)) //lilei
 
-// 2. Function.prototype.apply()
-console.log(xiaoming.displayName.call(lihua)) //lihua
+// 2. Function.prototype.apply(this,[args1,args2,args3])
+console.log(xiaoming.displayName.apply(lihua)) //lihua
 
 /**
  * 如果省略第一个 thisArg 参数，则默认为 undefined。
@@ -55,3 +55,8 @@ console.log(xiaoming.displayName.call())
 // 3. 使用 Function.prototype.bind()，创建一个新的函数，无论函数如何被调用，其 this 的值都不会改变
 const lileiThisForever = xiaoming.displayName.bind(lilei)
 console.log(lileiThisForever())
+
+//速记
+// call参数一个一个传
+// aply参数一次传对象
+// bind参数一个一个传 ,返回函数记住this

@@ -1,12 +1,7 @@
-const bookPrototype = {
-    displayInfo(){
-        console.log(`Book => name: ${this.name} type: ${this.type}`)
-    }
-}
-function Book(name,type){
-    this.name = name;
-    this.type = type;
-}
+function Persons() { };
+var p = new Persons();
+console.log(p.__proto__) // Persons {}
+console.log(Object.getPrototypeOf(p)) //Persons {}
 
-Book.prototype
-Object.prototype
+console.log(Persons.prototype) // //Persons {}
+console.log(Object.getPrototypeOf(Persons))

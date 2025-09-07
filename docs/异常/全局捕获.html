@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>全局异常捕获示例</title>
+</head>
+<body>
+
+  <!-- 触发资源加载错误 -->
+  <img src="https://example.com/404.png" alt="404 img">
+
+  <script>
+    /***********************
+     * 1. 捕获普通运行时错误 *
+     ***********************/
+    window.addEventListener('error', function (event) {
+      // event.filename / lineno / colno / error 等字段可用
+      console.error('[全局 error]', event.error || event.message);
+      // 返回 true 表示“已处理”，浏览器控制台不再重复输出
+      return true;
+    });
+
+    /*************************
+     * 2. 捕获资源加载错误   *
+     *   <img>/<script>/<link> *
+     *************************/
+    window.addEventListener('error', function (event) {
+      // 运行时错误 event.target === window
+      // 资源加载错误 event.target 是 <img>/<script>/...
+      if (event.target !== window) {
+        console.error('[资源加载失败]', event.target.tagName, event.target.src || event.target.href);
+        return true;
+      }
+    }, true); // 捕获阶段，确保能拦截资源错误
+
+    /*************************
+     * 3. 捕获未处理 Promise *
+     *************************/
+    window.addEventListener('unhandledrejection', function (event) {
+      console.error('[未处理 Promise]', event.reason);
+      // 阻止默认控制台输出
+      event.preventDefault();
+    });
+
+    /****** 下面制造一些错误，用来验证 ******/
+
+    // 3.1 宏任务里抛错
+    setTimeout(() => {
+      throw new Error('宏任务中的错误');
+    });
+
+    // 3.2 未处理的 Promise 拒绝
+    Promise.reject(new Error('Promise 未捕获'));
+
+    // 3.3 同步脚本错误
+    // nonExistentFunc(); // 取消注释可测试同步错误
+  </script>
+</body>
+</html>

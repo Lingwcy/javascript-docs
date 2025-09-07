@@ -45,21 +45,20 @@ const data: Tree[] = [
 ]
 
 function tree2list(data: Tree[]) {
-    const treeList: List = []
+    const list: List = []
 
-    function traversal(data: Tree[]) {
-
-        data.forEach((value) => {
-            if (value.children) {
-                traversal(value.children)
-                delete value.children
+    function dfs(tree:Tree[]){
+        tree.forEach((item) =>{
+            if(item.children){
+                dfs(item.children)
+                delete item.children
             }
-            treeList.push(value)
-
+            list.push(item)
         })
     }
-    traversal(data)
-    return treeList
+
+    dfs(data)
+    return list
 }
 
 const value = tree2list(data)

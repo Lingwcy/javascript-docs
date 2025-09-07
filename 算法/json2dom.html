@@ -31,23 +31,26 @@
         }
       ]
     }
-    function render(vnode){
-        if(typeof vnode === "number") vnode = String(vnode)
-        if(typeof vnode === "string"){
-            return document.createTextNode(vnode)
-        }
-        const dom = document.createElement(vnode.tag)
-        if(vnode.attrs){
-            Object.keys(vnode.attrs).forEach((key) =>{
-                const value = vnode.attrs[key]
-                dom.setAttribute(key,value)
-            })
-        }
+    function render(vnode) {
+      if (typeof vnode === 'string' || typeof vnode === 'number') {
+        return document.createTextNode(String(vnode));
+      }
 
-        vnode.children.forEach((child) => dom.appendChild(render(child)))
-        return dom
+      const node = document.createElement(vnode.tag)
+      if (vnode.attrs) {
+        for (const key in vnode.attrs) {
+          node.setAttribute(key, vnode.attrs[key])
+        }
+      }
+
+      if (Array.isArray(vnode.children)) {
+        vnode.children.forEach(child => node.appendChild(render(child)));
+      }
+      return node
     }
     document.body.appendChild(render(vnode))
+
   </script>
 </body>
+
 </html>

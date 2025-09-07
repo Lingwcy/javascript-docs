@@ -57,7 +57,10 @@ console.log(Book.prototype)
 
     所以第7行应该更正为`bookPrototype`。
  */
-Book.prototype = bookPrototype;
+Book.prototype = {
+    ...bookPrototype,
+    bookPrototype
+};
 
 const commonBook = new Book("harry","story");
 console.log(commonBook.constructor === Book)

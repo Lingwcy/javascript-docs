@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* 亮色变量 */
+  --color-bg: oklch(0.99 0 0);
+  --color-text: oklch(0.21 0 0);
+  --color-primary: oklch(0.63 0.19 250);
+  --color-primary-foreground: oklch(0.99 0 0);
+}
+
+/* 暗色变量 */
+.dark {
+  --color-bg: oklch(0.21 0 0);
+  --color-text: oklch(0.95 0 0);
+  --color-primary: oklch(0.75 0.19 250);
+  --color-primary-foreground: oklch(0.21 0 0);
+}
+
+
+/* 新增 Sakura 变量 */
+.sakura {
+  --color-bg: oklch(0.99 0.01 350);          /* 超浅樱花背景 */
+  --color-text: oklch(0.36 0.09 350);        /* 深樱花文字 */
+  --color-primary: oklch(0.77 0.19 350);     /* 主樱花粉 */
+  --color-primary-foreground: oklch(0.99 0 0);
+}
+body {
+
+  transition: background-color .3s, color .3s;
+}
